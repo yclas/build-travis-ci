@@ -11,8 +11,8 @@
         ServerAdmin webmaster@localhost
         ServerName reoc.lo
         ServerAlias www.reoc.lo
-        DocumentRoot /var/www/yclas-test
-        <Directory "/var/www/yclas-test">
+        DocumentRoot /var/www/openclassifieds2
+        <Directory "/var/www/openclassifieds2">
             AllowOverride All
         </Directory>
 
