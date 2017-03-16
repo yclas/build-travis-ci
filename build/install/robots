@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /images/*
+Sitemap: http://reoc.lo/sitemap.xml.gz
