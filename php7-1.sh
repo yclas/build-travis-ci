@@ -10,9 +10,7 @@ sudo apt-get install php7.1-gd -y
 
 sudo apt-get install php7.1-fpm -y
 sudo a2enmod proxy_fcgi setenvif
-sudo service apache2 restart
 sudo a2enconf php7.1-fpm
-sudo service apache2 reload
 
 sudo apt-get install php7.1-mbstring -y
 
@@ -26,12 +24,7 @@ sudo apt-get install php7.1-zip -y
 
 sudo apt-get install php7.1-soap -y
 
-sudo service apache2 restart
-
 sudo sed -i 's/short_open_tag = Off/short_open_tag = On/g' /etc/php/7.1/cli/php.ini
 sudo sed -i 's/short_open_tag = Off/short_open_tag = On/g' /etc/php/7.1/fpm/php.ini
 sudo sed -i 's/short_open_tag = Off/short_open_tag = On/g' /etc/php/7.1/apache2/php.ini
-sudo service apache2 restart
-
-php -v
-
+sudo service apache2 reload
