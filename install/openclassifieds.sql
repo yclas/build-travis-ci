@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2017 at 04:29 PM
+-- Generation Time: Sep 07, 2017 at 01:59 PM
 -- Server version: 5.7.14-1+deb.sury.org~trusty+0
--- PHP Version: 7.0.14-2+deb.sury.org~trusty+1
+-- PHP Version: 7.0.23-1+ubuntu14.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -100,7 +100,7 @@ CREATE TABLE `yc3_ads` (
 INSERT INTO `yc3_ads` (`id_ad`, `id_user`, `id_category`, `id_location`, `title`, `seotitle`, `description`, `address`, `latitude`, `longitude`, `price`, `phone`, `website`, `ip_address`, `created`, `published`, `featured`, `last_modified`, `status`, `has_images`, `stock`, `rate`, `favorited`) VALUES
 (1, 1, 2, 2, 'some nice title here', 'some-nice-title-here', 'description allows bbcode', 'optional address', NULL, NULL, '0.000', '949494949', 'http://open-classifieds.com', NULL, '2009-06-18 22:04:03', '2009-06-18 23:04:03', NULL, NULL, 1, 2, NULL, NULL, 0),
 (2, 2, 20, 3, 'another great title', 'another-great-title', 'description allows bbcode', '', NULL, NULL, '5.000', '419949494', 'NULL', NULL, '2009-06-29 11:55:03', '2009-06-29 12:55:03', NULL, NULL, 1, 1, NULL, NULL, 0),
-(3, 3, 2, 4, 'just random title here', 'just-random-title-here', 'description allows bbcode', 'street number', NULL, NULL, '300.000', '8848585', 'NULL', NULL, '2009-07-07 07:58:40', '2009-07-07 08:58:40', NULL, NULL, 1, 1, NULL, NULL, 0),
+(3, 3, 8, 4, 'just random title here', 'just-random-title-here', 'description allows bbcode', 'street number', NULL, NULL, '300.000', '8848585', 'NULL', NULL, '2009-07-07 07:58:40', '2009-07-07 08:58:40', NULL, NULL, 1, 0, NULL, NULL, 0),
 (4, 4, 2, 5, 'title for the ad', 'title-for-the-ad', 'description allows bbcode', 'street number', NULL, NULL, '2500.000', '908848585', 'NULL', NULL, '2009-08-06 06:25:36', '2009-08-06 07:25:36', NULL, NULL, 1, 1, NULL, NULL, 0);
 
 -- --------------------------------------------------------
@@ -137,10 +137,10 @@ CREATE TABLE `yc3_adsimport` (
 --
 
 INSERT INTO `yc3_adsimport` (`id_import`, `id_user`, `user_name`, `user_email`, `id_category`, `category`, `id_location`, `location`, `title`, `description`, `address`, `price`, `phone`, `date`, `website`, `image_1`, `image_2`, `image_3`, `image_4`, `processed`) VALUES
-(1, 1, 'admin', 'admin@reoc.lo', 2, 'Jobs', 2, 'Madrid', 'some nice title here', 'description allows bbcode', 'optional address', '0.000', '949494949', '2009-06-18 23:04:03', 'http://open-classifieds.com', 'http://lorempixel.com/1200/800/technics/', 'http://lorempixel.com/1200/800/technics/', '', '', 1),
-(2, 2, 'Jermaine Doe', 'user@reoc.lo', 20, 'House', 3, 'London', 'another great title', 'description allows bbcode', '', '5.000', '419949494', '2009-06-29 12:55:03', 'NULL', 'http://lorempixel.com/1200/800/abstract/', '', '', '', 1),
-(3, 3, 'Gary Doe', 'gazzasdasd@reoc.lo', 2, 'Jobs', 4, 'Barcelona', 'just random title here', 'description allows bbcode', 'street number', '300.000', '8848585', '2009-07-07 08:58:40', 'NULL', 'http://lorempixel.com/1200/800/people/', '', '', '', 1),
-(4, 4, 'John Smith', 'john@gmail.com', 2, 'Jobs', 5, 'Paris', 'title for the ad', 'description allows bbcode', 'street number', '2500.000', '908848585', '2009-08-06 07:25:36', 'NULL', 'http://lorempixel.com/1200/800/people/', '', '', '', 1);
+(1, 1, 'admin', 'admin@reoc.lo', NULL, 'Jobs', 2, 'Madrid', 'some nice title here', 'description allows bbcode', 'optional address', '0.000', '949494949', '2009-06-18 23:04:03', 'http://open-classifieds.com', 'http://lorempixel.com/1200/800/technics/', 'http://lorempixel.com/1200/800/technics/', '', '', 1),
+(2, 2, 'Jermaine Doe', 'user@reoc.lo', NULL, 'House', 3, 'London', 'another great title', 'description allows bbcode', '', '5.000', '419949494', '2009-06-29 12:55:03', 'NULL', 'http://lorempixel.com/1200/800/abstract/', '', '', '', 1),
+(3, 3, 'Gary Doe', 'gazzasdasd@reoc.lo', NULL, 'Part Time', 4, 'Barcelona', 'just random title here', 'description allows bbcode', 'street number', '300.000', '8848585', '2009-07-07 08:58:40', 'NULL', 'http://lorempixel.com/1200/800/people/', '', '', '', 1),
+(4, 4, 'John Smith', 'john@gmail.com', NULL, 'Jobs', 5, 'Paris', 'title for the ad', 'description allows bbcode', 'street number', '2500.000', '908848585', '2009-08-06 07:25:36', 'NULL', 'http://lorempixel.com/1200/800/people/', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +167,7 @@ CREATE TABLE `yc3_categories` (
 --
 
 INSERT INTO `yc3_categories` (`id_category`, `name`, `order`, `created`, `id_category_parent`, `parent_deep`, `seoname`, `description`, `price`, `last_modified`, `has_image`) VALUES
-(1, 'Home category', 0, '2017-01-05 15:55:34', 0, 0, 'all', 'root category', '0.00', NULL, 0),
+(1, 'Home category', 0, '2017-09-07 12:54:08', 0, 0, 'all', 'root category', '0.00', NULL, 0),
 (2, 'Jobs', 1, '2013-05-01 15:41:04', 1, 0, 'jobs', 'The best place to find work is with our job offers. Also you can ask for work in the \'Need\' section.', '0.00', NULL, 0),
 (3, 'Languages', 2, '2013-05-01 15:41:04', 1, 0, 'languages', 'You want to learn a new language? Or can you teach a language? This is your section!', '0.00', NULL, 0),
 (4, 'Others', 4, '2013-05-01 15:41:04', 1, 0, 'others', 'Whatever you can imagine is in this section.', '0.00', NULL, 0),
@@ -218,12 +218,17 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('advertisement', 'advertisements_per_page', '10'),
 ('general', 'akismet_key', ''),
 ('general', 'alert_terms', ''),
+('general', 'algolia_powered_by_enabled', '1'),
+('general', 'algolia_search', '0'),
+('general', 'algolia_search_admin_key', ''),
+('general', 'algolia_search_application_id', ''),
+('general', 'algolia_search_only_key', ''),
 ('image', 'allowed_formats', 'jpeg,jpg,png,'),
 ('i18n', 'allow_query_language', '0'),
 ('appearance', 'allow_query_theme', '0'),
 ('payment', 'alternative', ''),
 ('general', 'analytics', ''),
-('general', 'api_key', '3kz7c%vn6uzwpfjj8y4mf72h2ers57xj'),
+('general', 'api_key', 'd%yfrvbb87ce43pf@qsxdt6ks7kfmk7a'),
 ('payment', 'authorize_key', ''),
 ('payment', 'authorize_login', ''),
 ('payment', 'authorize_sandbox', '0'),
@@ -250,19 +255,20 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('general', 'contact_page', ''),
 ('advertisement', 'contact_price', '1'),
 ('general', 'cookie_consent', '0'),
+('general', 'country', ''),
 ('advertisement', 'count_visits', '1'),
 ('general', 'cron', '1'),
 ('appearance', 'custom_css', '0'),
 ('appearance', 'custom_css_version', '0'),
 ('general', 'date_format', 'd-m-y'),
 ('theme', 'default', '{"theme":"default","category_badge":"0","hide_description_icon":"0"}'),
+('advertisement', 'delete_ad', '0'),
 ('advertisement', 'description', '1'),
 ('advertisement', 'description_bbcode', '1'),
 ('general', 'disallowbots', '0'),
 ('image', 'disallow_nudes', '0'),
 ('advertisement', 'disqus', ''),
 ('advertisement', 'dropbox_app_key', ''),
-('email', 'elastic_active', '0'),
 ('email', 'elastic_listname', ''),
 ('email', 'elastic_password', ''),
 ('email', 'elastic_username', ''),
@@ -291,6 +297,9 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('general', 'hide_homepage_categories', '{}'),
 ('general', 'html_footer', ''),
 ('general', 'html_head', ''),
+('advertisement', 'instagram', '0'),
+('advertisement', 'instagram_password', ''),
+('advertisement', 'instagram_username', ''),
 ('general', 'landing_page', '{"controller":"home","action":"index"}'),
 ('advertisement', 'leave_alert', '1'),
 ('i18n', 'locale', 'en_US'),
@@ -298,6 +307,7 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('advertisement', 'logbee', '0'),
 ('advertisement', 'login_to_contact', '0'),
 ('advertisement', 'login_to_post', '0'),
+('advertisement', 'login_to_view_ad', '0'),
 ('general', 'maintenance', '0'),
 ('advertisement', 'map', '0'),
 ('appearance', 'map_active', '0'),
@@ -319,11 +329,14 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('email', 'notify_name', 'no-reply Site Name'),
 ('general', 'number_format', '%n'),
 ('advertisement', 'num_images', '4'),
-('general', 'ocacu', '1483633320'),
+('general', 'ocacu', '1504788871'),
 ('advertisement', 'only_admin_post', '0'),
 ('payment', 'paguelofacil_cclw', ''),
 ('payment', 'paguelofacil_testing', '0'),
 ('advertisement', 'parent_category', '1'),
+('payment', 'payfast_merchant_id', ''),
+('payment', 'payfast_merchant_key', ''),
+('payment', 'payfast_sandbox', '0'),
 ('payment', 'paymill_private', ''),
 ('payment', 'paymill_public', ''),
 ('payment', 'paypal_account', ''),
@@ -331,14 +344,26 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('payment', 'paypal_seller', '0'),
 ('payment', 'paysbuy', ''),
 ('payment', 'paysbuy_sandbox', '0'),
+('payment', 'paytabs_merchant_email', ''),
+('payment', 'paytabs_secret_key', ''),
 ('payment', 'pay_to_go_on_feature', '1'),
 ('payment', 'pay_to_go_on_top', '5'),
 ('advertisement', 'phone', '1'),
 ('advertisement', 'picker_api_key', ''),
 ('advertisement', 'picker_client_id', ''),
+('advertisement', 'pinterest', '0'),
+('advertisement', 'pinterest_access_token', ''),
+('advertisement', 'pinterest_app_id', ''),
+('advertisement', 'pinterest_app_secret', ''),
+('advertisement', 'pinterest_board', ''),
 ('advertisement', 'price', '1'),
 ('general', 'private_site', '0'),
 ('general', 'private_site_page', ''),
+('general', 'pusher_notifications', '0'),
+('general', 'pusher_notifications_app_id', ''),
+('general', 'pusher_notifications_cluster', 'eu'),
+('general', 'pusher_notifications_key', ''),
+('general', 'pusher_notifications_secret', ''),
 ('advertisement', 'qr_code', '0'),
 ('image', 'quality', '90'),
 ('general', 'recaptcha_active', '0'),
@@ -359,10 +384,12 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('payment', 'securepay_merchant', ''),
 ('payment', 'securepay_password', ''),
 ('payment', 'securepay_testing', '0'),
+('email', 'service', 'mail'),
 ('advertisement', 'sharing', '0'),
 ('general', 'site_description', ''),
 ('general', 'site_name', 'Site Name'),
-('email', 'smtp_active', '0'),
+('general', 'sms_auth', '0'),
+('general', 'sms_clickatell_api', ''),
 ('email', 'smtp_auth', '0'),
 ('email', 'smtp_host', ''),
 ('email', 'smtp_pass', ''),
@@ -384,6 +411,7 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('payment', 'stripe_public', ''),
 ('general', 'subscribe', '0'),
 ('general', 'subscriptions', '0'),
+('general', 'subscriptions_expire', '1'),
 ('advertisement', 'thanks_page', ''),
 ('appearance', 'theme', 'default'),
 ('appearance', 'theme_mobile', ''),
@@ -399,6 +427,7 @@ INSERT INTO `yc3_config` (`group_name`, `config_key`, `config_value`) VALUES
 ('payment', 'twocheckout_secretword', ''),
 ('payment', 'twocheckout_sid', ''),
 ('advertisement', 'upload_file', '0'),
+('image', 'upload_from_url', '0'),
 ('user', 'user_fields', '{}'),
 ('advertisement', 'validate_banned_words', '0'),
 ('payment', 'vat_country', ''),
@@ -434,30 +463,30 @@ CREATE TABLE `yc3_content` (
 --
 
 INSERT INTO `yc3_content` (`id_content`, `locale`, `order`, `title`, `seotitle`, `description`, `from_email`, `created`, `type`, `status`) VALUES
-(1, 'en_UK', 0, 'Change Password [SITE.NAME]', 'auth-remember', 'Hello [USER.NAME],\n\nFollow this link  [URL.QL]\n\nThanks!!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(2, 'en_UK', 0, 'Welcome to [SITE.NAME]!', 'auth-register', 'Welcome [USER.NAME],\n\nWe are really happy that you have joined us! [URL.QL]\n\nRemember your user details:\nEmail: [USER.EMAIL]\nPassword: [USER.PWD]\n\nWe do not have your original password anymore.\n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(3, 'en_UK', 0, 'Hello [USER.NAME]!', 'user-contact', 'You have been contacted regarding your advertisement: \n\n`[AD.NAME]`. \n\n User [EMAIL.SENDER] [EMAIL.FROM], have a message for you: \n\n[EMAIL.BODY]. \n\nYou can check your advertisement by following this link [URL.AD]\n\n Regards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(4, 'en_UK', 0, 'Hello [USER.NAME]!', 'user-profile-contact', 'User [EMAIL.SENDER] [EMAIL.FROM], have a message for you: \n\n[EMAIL.SUBJECT] \n\n[EMAIL.BODY]. \n\n Regards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(5, 'en_UK', 0, '[EMAIL.SENDER] wants to contact you!', 'contact-admin', 'Hello Admin,\n\n [EMAIL.SENDER]: [EMAIL.FROM], have a message for you:\n\n [EMAIL.SUBJECT]\n\n [EMAIL.BODY] \n\n Regards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(6, 'en_UK', 0, 'Your advertisement `[AD.NAME]` at [SITE.NAME], has been activated!', 'ads-activated', 'Hello [USER.OWNER],\n\n We want to inform you that your advertisement [URL.QL] has been activated!\n\n Now it can be seen by others. \n\n We hope we did not make you wait for long. \n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(7, 'en_UK', 0, 'Success! Your advertisement `[AD.NAME]` is created on [SITE.NAME]!', 'ads-notify', 'Hello [USER.NAME],\n\nThank you for creating an advertisement at [SITE.NAME]! \n\nYou can edit your advertisement here [URL.QL].\n\n Your ad is still not published, it needs to be validated by an administrator. \n\n We are sorry for any inconvenience. We will review it as soon as possible. \n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(8, 'en_UK', 0, 'Advertisement `[AD.NAME]` is created on [SITE.NAME]!', 'ads-user-check', 'Hello [USER.NAME],\n\n Advertisement is created under your account [USER.NAME]! You can visit this link to see advertisement [URL.AD]\n\n If you are not responsible for creating this advertisement, click a link to contact us [URL.CONTACT].\n\n', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(9, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is created on [SITE.NAME]!', 'ads-subscribers', 'Hello,\n\n You may be interested in this one!\n\nYou can visit this link to see advertisement [URL.AD]\n\n', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(10, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is created on [SITE.NAME]!', 'ads-to-admin', 'Click here to visit [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(11, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is sold on [SITE.NAME]!', 'ads-sold', 'Order ID: [ORDER.ID]\n\nProduct ID: [PRODUCT.ID]\n\nPlease check your account for the incoming payment.\n\nClick here to visit [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(12, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is out of stock on [SITE.NAME]!', 'out-of-stock', 'Hello [USER.NAME],\n\nWhile your ad is out of stock, it is unavailable for others to see. If you wish to increase stock and activate, please follow this link [URL.EDIT].\n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(13, 'en_UK', 0, 'You bought `[AD.TITLE]`', 'ads-purchased', 'Order ID: [ORDER.ID]\n\nProduct ID: [PRODUCT.ID]\n\nClick here to visit [URL.AD]\n\n[BUYER.INSTRUCTIONS]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(14, 'en_UK', 0, 'Receipt for [ORDER.DESC] #[ORDER.ID]', 'new-order', 'Hello [USER.NAME],Thanks for buying [ORDER.DESC].\n\nPlease complete the payment here [URL.CHECKOUT]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(15, 'en_UK', 0, 'Success! Your advertisement `[AD.NAME]` is created on [SITE.NAME]!', 'ads-confirm', 'Welcome [USER.NAME],\n\nThank you for creating an advertisement at [SITE.NAME]! \n\nPlease click on this link [URL.QL] to confirm it.\n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(16, 'en_UK', 0, 'Your ad [AD.NAME] has expired', 'ad-expired', 'Hello [USER.NAME],Your ad [AD.NAME] has expired \n\nPlease check your ad here [URL.EDITAD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(17, 'en_UK', 0, 'Your ad [AD.NAME] is going to expire', 'ad-to-expire', 'Hello [USER.NAME],Your ad [AD.NAME] will expire soon \n\nPlease check your ad here [URL.EDITAD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(18, 'en_UK', 0, 'Password Changed [SITE.NAME]', 'password-changed', 'Hello [USER.NAME],\n\nYour password has been changed.\n\nThese are now your user details:\nEmail: [USER.EMAIL]\nPassword: [USER.PWD]\n\nWe do not have your original password anymore.\n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(19, 'en_UK', 0, 'New reply: [TITLE]', 'messaging-reply', '[URL.QL]\n\n[DESCRIPTION]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(20, 'en_UK', 0, '[FROM.NAME] sent you a direct message', 'messaging-user-contact', 'Hello [TO.NAME],\n\n[FROM.NAME] have a message for you:\n\n[DESCRIPTION]\n\n[URL.QL]\n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(21, 'en_UK', 0, 'Hello [TO.NAME]!', 'messaging-ad-contact', 'You have been contacted regarding your advertisement:\n\n`[AD.NAME]`.\n\nUser [FROM.NAME], have a message for you:\n\n[DESCRIPTION]\n\n[URL.QL]\n\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(22, 'en_UK', 0, 'New review for [AD.TITLE] [RATE]', 'ad-review', '[URL.QL]\n\n[RATE]\n\n[DESCRIPTION]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(23, 'en_UK', 0, 'There is a new reply on the forum', 'new-forum-answer', 'There is a new reply on a forum post where you participated.<br><br><a target="_blank" href="[FORUM.LINK]">Check it here</a><br><br>[FORUM.LINK]<br>', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(24, 'en_UK', 0, 'Your plan [PLAN.NAME] has expired', 'plan-expired', 'Hello [USER.NAME],Your plan [PLAN.NAME] has expired \n\nPlease renew your plan here [URL.CHECKOUT]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
+(1, 'en_UK', 0, 'Change Password [SITE.NAME]', 'auth-remember', 'Hello [USER.NAME],\n\nFollow this link  [URL.QL]\n\nThanks!!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(2, 'en_UK', 0, 'Welcome to [SITE.NAME]!', 'auth-register', 'Welcome [USER.NAME],\n\nWe are really happy that you have joined us! [URL.QL]\n\nRemember your user details:\nEmail: [USER.EMAIL]\nPassword: [USER.PWD]\n\nWe do not have your original password anymore.\n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(3, 'en_UK', 0, 'Hello [USER.NAME]!', 'user-contact', 'You have been contacted regarding your advertisement: \n\n`[AD.NAME]`. \n\n User [EMAIL.SENDER] [EMAIL.FROM], have a message for you: \n\n[EMAIL.BODY]. \n\nYou can check your advertisement by following this link [URL.AD]\n\n Regards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(4, 'en_UK', 0, 'Hello [USER.NAME]!', 'user-profile-contact', 'User [EMAIL.SENDER] [EMAIL.FROM], have a message for you: \n\n[EMAIL.SUBJECT] \n\n[EMAIL.BODY]. \n\n Regards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(5, 'en_UK', 0, '[EMAIL.SENDER] wants to contact you!', 'contact-admin', 'Hello Admin,\n\n [EMAIL.SENDER]: [EMAIL.FROM], have a message for you:\n\n [EMAIL.SUBJECT]\n\n [EMAIL.BODY] \n\n Regards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(6, 'en_UK', 0, 'Your advertisement `[AD.NAME]` at [SITE.NAME], has been activated!', 'ads-activated', 'Hello [USER.OWNER],\n\n We want to inform you that your advertisement [URL.QL] has been activated!\n\n Now it can be seen by others. \n\n We hope we did not make you wait for long. \n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(7, 'en_UK', 0, 'Success! Your advertisement `[AD.NAME]` is created on [SITE.NAME]!', 'ads-notify', 'Hello [USER.NAME],\n\nThank you for creating an advertisement at [SITE.NAME]! \n\nYou can edit your advertisement here [URL.QL].\n\n Your ad is still not published, it needs to be validated by an administrator. \n\n We are sorry for any inconvenience. We will review it as soon as possible. \n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(8, 'en_UK', 0, 'Advertisement `[AD.NAME]` is created on [SITE.NAME]!', 'ads-user-check', 'Hello [USER.NAME],\n\n Advertisement is created under your account [USER.NAME]! You can visit this link to see advertisement [URL.AD]\n\n If you are not responsible for creating this advertisement, click a link to contact us [URL.CONTACT].\n\n', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(9, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is created on [SITE.NAME]!', 'ads-subscribers', 'Hello,\n\n You may be interested in this one!\n\nYou can visit this link to see advertisement [URL.AD]\n\n', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(10, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is created on [SITE.NAME]!', 'ads-to-admin', 'Click here to visit [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(11, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is sold on [SITE.NAME]!', 'ads-sold', 'Order ID: [ORDER.ID]\n\nProduct ID: [PRODUCT.ID]\n\nPlease check your account for the incoming payment.\n\nClick here to visit [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(12, 'en_UK', 0, 'Advertisement `[AD.TITLE]` is out of stock on [SITE.NAME]!', 'out-of-stock', 'Hello [USER.NAME],\n\nWhile your ad is out of stock, it is unavailable for others to see. If you wish to increase stock and activate, please follow this link [URL.EDIT].\n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(13, 'en_UK', 0, 'You bought `[AD.TITLE]`', 'ads-purchased', 'Order ID: [ORDER.ID]\n\nProduct ID: [PRODUCT.ID]\n\nClick here to visit [URL.AD]\n\n[BUYER.INSTRUCTIONS]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(14, 'en_UK', 0, 'Receipt for [ORDER.DESC] #[ORDER.ID]', 'new-order', 'Hello [USER.NAME],Thanks for buying [ORDER.DESC].\n\nPlease complete the payment here [URL.CHECKOUT]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(15, 'en_UK', 0, 'Success! Your advertisement `[AD.NAME]` is created on [SITE.NAME]!', 'ads-confirm', 'Welcome [USER.NAME],\n\nThank you for creating an advertisement at [SITE.NAME]! \n\nPlease click on this link [URL.QL] to confirm it.\n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(16, 'en_UK', 0, 'Your ad [AD.NAME] has expired', 'ad-expired', 'Hello [USER.NAME],Your ad [AD.NAME] has expired \n\nPlease check your ad here [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(17, 'en_UK', 0, 'Your ad [AD.NAME] is going to expire', 'ad-to-expire', 'Hello [USER.NAME],Your ad [AD.NAME] will expire soon \n\nPlease check your ad here [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(18, 'en_UK', 0, 'Password Changed [SITE.NAME]', 'password-changed', 'Hello [USER.NAME],\n\nYour password has been changed.\n\nThese are now your user details:\nEmail: [USER.EMAIL]\nPassword: [USER.PWD]\n\nWe do not have your original password anymore.\n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(19, 'en_UK', 0, 'New reply: [TITLE]', 'messaging-reply', '[URL.QL]\n\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(20, 'en_UK', 0, '[FROM.NAME] sent you a direct message', 'messaging-user-contact', 'Hello [TO.NAME],\n\n[FROM.NAME] have a message for you:\n\n[DESCRIPTION]\n\n[URL.QL]\n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(21, 'en_UK', 0, 'Hello [TO.NAME]!', 'messaging-ad-contact', 'You have been contacted regarding your advertisement:\n\n`[AD.NAME]`.\n\nUser [FROM.NAME], have a message for you:\n\n[DESCRIPTION]\n\n[URL.QL]\n\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(22, 'en_UK', 0, 'New review for [AD.TITLE] [RATE]', 'ad-review', '[URL.QL]\n\n[RATE]\n\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(23, 'en_UK', 0, 'There is a new reply on the forum', 'new-forum-answer', 'There is a new reply on a forum post where you participated.<br><br><a target="_blank" href="[FORUM.LINK]">Check it here</a><br><br>[FORUM.LINK]<br>', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(24, 'en_UK', 0, 'Your plan [PLAN.NAME] has expired', 'plan-expired', 'Hello [USER.NAME],Your plan [PLAN.NAME] has expired \n\nPlease renew your plan here [URL.CHECKOUT]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
 (30, 'ro_RO', 0, 'Anunțul dvs. `[AD.NAME]` a fost adăugat cu succes pe [SITE.NAME]!', 'ads-confirm', 'Bun venit, [USER.NAME].\n\nÎți mulțumim pentru adăugarea anunțului dvs. pe [SITE.NAME].\n\nTe rugăm să apeși un click pe acest link [URL.QL], pentru a confirma anunțul.\n\nToate cele bune!', 'admin@reoc.lo', '2013-07-29 09:25:48', 'email', 1),
 (31, 'ro_RO', 0, 'Anunțul dvs. `[AD.NAME]` a fost adăugat pe [SITE.NAME].', 'ads-user-check', 'Bună [USER.NAME],\n\nAnunțul a fost adăugat în contul dvs. [USER.NAME]. Puteți vizita acest link pentru vizualizarea anunțului [URL.AD].\n\nDacă nu sunteți răspunzător pentru adăugarea acestui anunț, vă rugăm să ne contactați, folosind link-ul următor: [URL.CONTACT].', 'admin@reoc.lo', '2013-07-29 09:27:46', 'email', 1),
 (32, 'ro_RO', 0, 'Anunțul dvs. `[AD.NAME]` a fost adăugat cu succes pe [SITE.NAME]!', 'ads-notify', 'Bună [USER.NAME],\n\nVă mulțumim că folosii serviciul nostru de anunțuri, [SITE.NAME]\n\nPuteți edita anunțul dvs. aici: [URL.QL].\n\nAnunțul dvs. nu este publicat momentan, deoarece este necesară validarea lui de către un administrator. \nNe cerem scuze pentru eventualele neplăceri. Vom încerca să-l revizuim cât mai repede posibil.\n\nCu stimă.', 'admin@reoc.lo', '2013-07-29 09:30:59', 'email', 1),
@@ -537,73 +566,78 @@ INSERT INTO `yc3_content` (`id_content`, `locale`, `order`, `title`, `seotitle`,
 (134, 'ar', 0, 'مرحبا [USER.NAME],', 'user-contact', '[right]تم الاتصال بك  بسبب اعلانك  المستخدم [EMAIL.FROM][EMAIL.SENDER] قام ارسالك  رساله  [/right]\n[right][EMAIL.BODY][/right]\n[right]تحياتنا لك [/right]', 'admin@reoc.lo', '2013-08-05 09:26:01', 'email', 1),
 (135, 'ar', 0, 'تغيير كلمة المرور [SITE.NAME]', 'auth-remember', '[right]مرحبا [USER.NAME][/right]\n[right]الرجاء  الضغط على الرابط التالي [URL.QL][/right]\n[right]وشكرا لك [/right]', 'admin@reoc.lo', '2013-08-05 09:27:06', 'email', 1),
 (136, 'ar', 0, 'مرحبا [SITE.NAME]', 'auth-register', '[right]مرحبا [USER.NAME][/right]\n[right]نحن في غاية السعادة بنظمامك الينا! [URL.QL][/right]\n[right]تفااصيل حسابك [/right]\n[right]البريد الالكتروني: [USER.EMAIL][/right]\n[right]كلمة السر: [USER.PWD][/right]\n[right]لم نعد نملك كلمة السر الاصلية  بعد الان.[/right]\n[right]تحياتنا لك[/right]', 'admin@reoc.lo', '2013-08-05 09:28:13', 'email', 1),
-(137, 'es_ES', 0, 'Cambiar Contraseña [SITE.NAME]', 'auth-remember', 'Hola [USER.NAME],\r\n\r\nSigue este enlace  [URL.QL]\r\n\r\n¡Gracias!', 'admin@reoc.lo', '2014-10-28 03:40:59', 'email', 1),
-(138, 'es_ES', 0, '¡Bienvenido a [SITE.NAME]!', 'auth-register', 'Bienvenido [USER.NAME],\r\n\r\n¡Estamos muy contentos de que te no hayas unido! [URL.QL]\r\n\r\nRecuerda tus detalles de usuario:\r\nEmail: [USER.EMAIL]\r\nContraseña: [USER.PWD]\r\n\r\nYa no tenemos más tu contraseña original.\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2014-10-28 03:43:35', 'email', 1),
-(139, 'es_ES', 0, '¡Hola [USER.NAME]!', 'user-contact', 'Has sido contactado en relación con tu anuncio: \r\n\r\n`[AD.NAME]`. \r\n\r\n Usuario [EMAIL.SENDER] [EMAIL.FROM], tiene un mensaje para ti: \r\n\r\n[EMAIL.BODY]. \r\n\r\n ¡Saludos!', 'admin@reoc.lo', '2014-10-28 03:44:40', 'email', 1),
-(140, 'es_ES', 0, '¡Hola [USER.NAME]!', 'user-profile-contact', 'Usuario [EMAIL.SENDER] [EMAIL.FROM], tiene un mensaje para ti: \r\n\r\n[EMAIL.SUBJECT] \r\n\r\n[EMAIL.BODY]. \r\n\r\n ¡Saludos!', 'admin@reoc.lo', '2014-10-28 03:45:17', 'email', 1),
-(141, 'es_ES', 0, '¡[EMAIL.SENDER] quiere contactarte!', 'contact-admin', 'Hello Admin,\r\n\r\n [EMAIL.SENDER]: [EMAIL.FROM], tiene un mensaje para ti:\r\n\r\n [EMAIL.BODY] \r\n\r\n ¡Saludos!', 'admin@reoc.lo', '2014-10-28 03:46:09', 'email', 1),
-(142, 'es_ES', 0, '¡Tu anuncio `[AD.NAME]` en [SITE.NAME] ha sido activado!', 'ads-activated', 'Hola [USER.OWNER],\r\n\r\n ¡Queremos informate que tu anuncio [URL.QL] ha sido activado!\r\n\r\n Ahora puede ser visto por otros usuarios. \r\n\r\n Esperamos no habarte hecho esperar demasiado. \r\n\r\n¡Saludos!', 'admin@reoc.lo', '2014-10-28 03:48:22', 'email', 1),
-(143, 'es_ES', 0, '¡Enhorabuena! Tu anuncio `[AD.NAME]` ha sido creado en [SITE.NAME]!', 'ads-notify', 'Hola [USER.NAME],\r\n\r\n¡Gracias por crear un anuncio en [SITE.NAME]! \r\n\r\nPuedes editar tu anuncio aquí [URL.QL].\r\n\r\n Tu anuncio aún no está publicado, necesita que sea validado por un administrador. \r\n\r\n Lamentamos el inconveniente. Lo revisaremos lo más pronto posible.\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2014-10-28 03:51:32', 'email', 1),
-(144, 'es_ES', 0, '¡Anuncio `[AD.NAME]` ha sido creado en [SITE.NAME]!', 'ads-user-check', 'Hola [USER.NAME],\r\n\r\n ¡[USER.NAME], un anuncio ha sido creado en tu cuenta! Puedes visitar este enlace para verlo [URL.AD]\r\n\r\n Si no eres el responsable de la creación de este anuncio, has clic en este enlace para contactarnos [URL.CONTACT].\r\n\r\n', 'admin@reoc.lo', '2014-10-28 04:08:50', 'email', 1),
-(145, 'es_ES', 0, '¡Anuncio `[AD.TITLE]` ha sido creado en [SITE.NAME]!', 'ads-subscribers', '¡Hola,\r\n\r\n ¡Quizás te interese esto!\r\n\r\nPuede visitar este enlace para ver el anuncio [URL.AD]\r\n\r\n', 'admin@reoc.lo', '2014-10-28 04:08:55', 'email', 1),
-(146, 'es_ES', 0, '¡Anuncio `[AD.TITLE]` ha sido creado en [SITE.NAME]!', 'ads-to-admin', 'Clic aquí para visitarlo [URL.AD]', 'admin@reoc.lo', '2014-10-28 04:03:48', 'email', 1),
-(147, 'es_ES', 0, '¡Anuncio `[AD.TITLE]` ha sido vendido en [SITE.NAME]!', 'ads-sold', 'ID de la orden: [ORDER.ID]\r\n\r\nID del producto: [PRODUCT.ID]\r\n\r\nPor favor, verifica tu cuenta para el pago recibido.\r\n\r\nClic aquí para visitar [URL.AD]', 'admin@reoc.lo', '2014-10-28 04:08:16', 'email', 1),
-(148, 'es_ES', 0, '¡El anuncio `[AD.TITLE]` ya no cuenta con stock en [SITE.NAME]!', 'out-of-stock', 'Hola [USER.NAME],\r\n\r\nMientras tu anuncio está fuera de stock, no estará disponible para que otros usuarios lo vean. Si deseas incrementar tu stock y activar tu anuncio, por favor sigue este enlace [URL.EDIT].\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2014-10-28 04:08:07', 'email', 1),
-(149, 'es_ES', 0, 'Ha comprado `[AD.TITLE]`', 'ads-purchased', 'ID de la orden: [ORDER.ID]\r\n\r\nID del producto: [PRODUCT.ID]\r\n\r\nClic aquí para visitar [URL.AD\n\n[BUYER.INSTRUCTIONS]', 'admin@reoc.lo', '2014-10-28 04:10:23', 'email', 1),
-(150, 'es_ES', 0, 'Recibo de [ORDER.DESC] #[ORDER.ID]', 'new-order', 'Hola [USER.NAME], gracias por comprar [ORDER.DESC].\r\n\r\nPor favor, completa tu pago aquí [URL.CHECKOUT]', 'admin@reoc.lo', '2014-10-28 04:11:39', 'email', 1),
-(151, 'es_ES', 0, '¡Enhorabuena! Tu anuncio `[AD.NAME]` fue creado en [SITE.NAME]!', 'ads-confirm', 'Bienvenido [USER.NAME],\r\n\r\nGracias por crear un anuncio en [SITE.NAME]! \r\n\r\nPor favor, has clic en este enlace [URL.QL] para confirmarlo.\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2014-10-28 04:12:51', 'email', 1),
-(152, 'es_ES', 0, 'Tu anuncio [AD.NAME] ha expirado', 'ad-expired', 'Hola [USER.NAME], Tu anuncio [AD.NAME] ha expirado \r\n\r\nPor favor, revisa tu anuncio aquí [URL.EDITAD]', 'admin@reoc.lo', '2014-10-28 03:52:59', 'email', 1),
-(153, 'es_ES', 0, 'Opinión nueva para [AD.TITLE] [RATE]', 'ad-review', '[URL.QL]\r\n\r\n[RATE]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2014-10-28 03:52:15', 'email', 1),
-(154, 'es_ES', 0, 'Hay una nueva respuesta en el foro', 'new-forum-answer', 'Hay una nueva respuesta en el foro donde has participado.\r\n<br><br>\r\n<a target="_blank" href="[FORUM.LINK]">Puedes revisarla aquí</a>\r\n<br><br>\r\n[FORUM.LINK]\r\n<br>', 'admin@reoc.lo', '2014-10-28 03:52:15', 'email', 1),
-(155, 'es_ES', 0, 'Su plan [PLAN.NAME] ha expirado', 'plan-expired', 'Hola [USER.NAME],Su plan [PLAN.NAME] ha expirado \n\nPorfavor renueve su plan aquí [URL.CHECKOUT]', 'admin@reoc.lo', '2016-02-28 03:52:15', 'email', 1),
-(156, 'fr_FR', 0, 'Félicitations! Votre annonce a bien été créée sur [SITE.NAME]!', 'ads-confirm', 'Bienvenue [USER.NAME],<br /><br />\n<br /><br />\nMerci d\'avoir créé une anonnce sur [SITE.NAME]! <br /><br />\n<br /><br />\nVeuillez cliquer sur ce lien [URL.QL] pour la confirmer.<br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(157, 'fr_FR', 0, 'Félicitations! Votre annonce a été créée sur [SITE.NAME]!', 'ads-notify', 'Bonjour [USER.NAME],<br /><br />\n<br /><br />\nMerci d\'avoir créé une anonnce sur [SITE.NAME]! <br /><br />\n<br /><br />\nVous pouvez modifier votre annonce ici [URL.QL].<br /><br />\n<br /><br />\nVotre annonce est en attente de publication, elle doit encore être validée par l\'administrateur. Nous allons l\'examiner dès que possible. <br /><br />\n<br /><br />\nNous sommes désolés pour le délai et la gène occasionnée. Merci de votre compréhension.<br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(158, 'fr_FR', 0, '[EMAIL.SENDER] souhaite vous contacter!', 'contact-admin', 'Bonjour Administrateur,<br /><br />\n<br /><br />\n[EMAIL.SENDER]: [EMAIL.FROM], a un message pour vous:<br /><br />\n<br /><br />\n[EMAIL.BODY] <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(159, 'fr_FR', 0, 'Votre annonce sur [SITE.NAME] a été activée!', 'ads-activated', 'Bonjour [USER.OWNER],<br /><br />\n<br /><br />\nNous vous informons que votre annonce [URL.QL] a été activée!<br /><br />\nElle est désormais visible de tous sur le site. <br /><br />\n<br /><br />\nEn espérant ne pas vous avoir fait trop attendre. <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(160, 'fr_FR', 0, 'Bonjour [USER.NAME]!', 'user-new', 'Bienvenue sur [SITE.NAME]. <br /><br />\n<br /><br />\nNous sommes ravis de votre participation,<br /><br />\nVous pouvez vous connecter avec votre email: [USER.EMAIL], <br /><br />\net votre mot de passe: [USER.PWD]. <br /><br />\n<br /><br />\nLe mot de passe a été généré automatiquement; pour le remplacer par votre mot de passe préféré, cliquez sur ce lien: [URL.PWCH]. <br /><br />\n<br /><br />\nMerci de votre confiance! <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(161, 'fr_FR', 0, 'Bonjour [USER.NAME]!', 'user-contact', 'Vous avez été contacté au sujet de votre annonce. <br /><br />\nL\'utilisateur [EMAIL.SENDER] [EMAIL.FROM] vous a envoyé le message suivant:<br /><br />\n[EMAIL.BODY]. <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(162, 'fr_FR', 0, 'Changement de mot de passe [SITE.NAME]', 'auth-remember', 'Bonjour [USER.NAME],<br /><br />\n<br /><br />\nVeuillez suivre ce lien [URL.QL]<br /><br />\n<br /><br />\nMerci!!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(163, 'fr_FR', 0, 'Bienvenue sur [SITE.NAME]!', 'auth-register', 'Bienvenue [USER.NAME],<br /><br />\n<br /><br />\nNous sommes ravis de votre participation! [URL.QL]<br /><br />\nVoici pour rappel vos informations de connexion:<br /><br />\nEmail: [USER.EMAIL]<br /><br />\nMot de passe: [USER.PWD]<br /><br />\n<br /><br />\nPour des raisons de sécurité, nous ne gardons pas votre mot de passe original.<br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(164, 'fr_FR', 0, 'Bonjour [USER.NAME]!', 'user-profile-contact', 'L\'utilisateur [Email.SENDER] [EMAIL.From] a un message pour vous: [EMAIL.SUBJECT] [EMAIL.BODY]. Cordialement,', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(165, 'fr_FR', 0, 'L\'annonce `[AD.NAME]` a été créée sur [SITE.NAME]!', 'ads-user-check', 'Bonjour [USER.NAME], l\'annonce a été créée avec votre compte [USER.NAME]! Vous pouvez visiter ce lien pour Cliquez ici pour accéder à votre annonce: [URL.AD] Si vous n\'êtes pas l\'auteur de cette annonce, cliquez sur le lien pour nous contacter: [URL.CONTACT].', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(166, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` vient d\'être publiée sur [SITE.NAME]!', 'ads-subscribers', 'Bonjour, Vous êtes peut être intéressé(e) par cette nouvelle annonce! Cliquez sur ce lien pour Cliquez ici pour accéder à votre annonce: [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(167, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` vient d\'être créée sur [SITE.NAME]!', 'ads-to-admin', 'Cliquez ici pour voir l\'annnonce [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(168, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` a été vendue sur [SITE.NAME]!', 'ads-sold', 'Numéro de commande: [ORDER.ID] ID de produit: [PRODUCT.ID] Veuillez svp vérifier votre compte pour le paiement entrant. Cliquez ici pour accéder à votre annonce: [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(169, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` est en rupture de stock sur [SITE.NAME]!', 'out-of-stock', 'Bonjour [USER.NAME]. Comme votre annonce est en rupture de stock, il n\'est pas posible pour les visiteurs du site de la voir. Si vous souhaitez augmenter sa disponibilité et ainsi activer votre annonce, veuillez svp cliquer sur le lien suivant: [URL.EDIT]. Cordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(170, 'fr_FR', 0, 'Reçu pour votre commande [ORDER.DESC] # [ORDER.ID]', 'new-order', 'Bonjour [USER.NAME], Merci pour votre commande [ORDER.DESC]. Veuillez svp régler votre commande et procéder à son paiement ici: [URL.CHECKOUT]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(171, 'fr_FR', 0, 'Votre annonce [AD.NAME] a expiré', 'ad-expired', 'Bonjour [USER.NAME], Votre annonce [AD.NAME] a expiré. Veuillez svp vérifier votre annonce ici: [URL.EDITAD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(172, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` a été achetée sur [SITE.NAME]!', 'ads-purchased', 'Numéro de commande: [ORDER.ID] ID du produit: [PRODUCT.ID] Pour toute question ou demande veuillez svp contacter l\'administrateur du site [SITE.NAME] Cliquez ici pour accéder à votre annonce: [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(173, 'fr_FR', 0, 'Mot de passe modifié [SITE.NAME]', 'password-changed', 'Bonjour [USER.NAME], Votre mot de passe a été changé. Voici vos nouvelles informations de connexion: Email: [USER.EMAIL] Mot de passe: [USER.PWD] . Pour des raisons de sécurité, nous ne gardons pas votre mot de passe original. Cordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(174, 'fr_FR', 0, 'Votre annonce [AD.NAME] va expirer', 'ad-to-expire', 'Bonjour [USER.NAME], Votre annonce [AD.NAME] va bientôt expirer. Veuillez svp vérifier votre annonce en cliquant sur ce lien: [URL.EDITAD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(175, 'fr_FR', 0, 'Nouvelle réponse: [TITRE]', 'messaging-reply', '[URL.QL]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(176, 'fr_FR', 0, '[FROM.NAME] vous a envoyé un message direct', 'messaging-user-contact', 'Bonjour [TO.NAME], [FROM.NAME] a un message pour vous: [description] [URL.QL] Cordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(177, 'fr_FR', 0, 'Nouveau commentaire sur votre annonce [AD.TITLE] [RATE]', 'ad-review', 'Bonjour, une nouveau commentaire et une appréciation ont été publiés pour votre annonce. [URL.QL]\r\n\r\n[RATE]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(178, 'fr_FR', 0, 'Bonjour [TO.NAME]!', 'messaging-ad-contact', 'Vous avez été contacté au sujet de votre annonce: `[AD.NAME]`. L\'utilisateur [FROM.NAME] a un message pour vous: [DESCRIPTION] [URL.QL] Cordialement!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(179, 'ru_RU', 0, 'Добро Пожаловать на [SITE.NAME]!', 'auth-register', '<p>Добро Пожаловать [USER.NAME], мы очень рады, что Вы присоединились к нам! &nbsp;[URL.QL] Запомните детали своего профайла:\r\nEmail: [USER.EMAIL] Пароль: [USER.PWD] У нас больше нет вашего первоначального пароля. С уважением!&nbsp;</p>', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(180, 'ru_RU', 0, 'Изменить пароль на [SITE.NAME]', 'auth-remember', 'Здравствуйте [USER.NAME], перейдите за ссылкой [URL.QL] Спасибо!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(181, 'ru_RU', 0, 'Здравствуйте [USER.NAME]!', 'user-profile-contact', 'Пользователь [EMAIL.SENDER] [EMAIL.FROM], прислал вам сообщение: \r\n\r\n[EMAIL.SUBJECT] \r\n\r\n[EMAIL.BODY]. С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(182, 'ru_RU', 0, 'Здравствуйте [USER.NAME]!', 'user-contact', 'С Вами хотят связаться насчёт Вашего объявления: `[AD.NAME]`. Пользователь [EMAIL.SENDER] [EMAIL.FROM], прислал Вам сообщение: [EMAIL.BODY]. С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(183, 'ru_RU', 0, '[EMAIL.SENDER] хочет с Вами связаться!', 'contact-admin', 'Здравствуйте Адміністратор, [EMAIL.SENDER]: [EMAIL.FROM], прислал Вам сообщение: [EMAIL.BODY] С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(184, 'ru_RU', 0, 'Наши поздравления, объявление `[AD.NAME]` на [SITE.NAME] было успешно создано!', 'ads-notify', 'Здравствуйте [USER.NAME], Большое спасибо за объявление на [SITE.NAME]! Вы можете редактировать его здесь [URL.QL]. Ваше объявление еще не опубликовано, сначало оно должно быть подтверждено администратором. Приносим извинения за возможные неудобства. Мы рассмотрим его как можно скорее. С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(185, 'ru_RU', 0, 'Квитанция за [ORDER.DESC] #[ORDER.ID]', 'new-order', 'Здавствуйте [USER.NAME], Большое спасибо за покупку [ORDER.DESC]. Пожалуйста, продолжите оплату здесь  [URL.CHECKOUT].', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(186, 'ru_RU', 0, 'Объявление `[AD.TITLE]` is out of stock on [SITE.NAME]!', 'out-of-stock', 'Здавствуйте [USER.NAME],\r\n\r\nWhile your ad is out of stock, it is unavailable for others to see. If you wish to increase stock and activate, please follow this link [URL.EDIT].\r\n\r\nRegards!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(187, 'ru_RU', 0, 'Объявление`[AD.TITLE]` продано на [SITE.NAME]!', 'ads-sold', 'Номер заказа: [ORDER.ID] Номер продукта: [PRODUCT.ID] Пожалуйста, проверте свой акаунт на оплату. Для просмотра нажмите здесь [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(188, 'ru_RU', 0, 'Объявление `[AD.TITLE]` создано на [SITE.NAME]!', 'ads-to-admin', 'Для просмотра нажмите здесь [URL.AD]&nbsp;', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(189, 'ru_RU', 0, 'Объявление`[AD.TITLE]` создано на [SITE.NAME]!', 'ads-subscribers', 'Здравствуйте, Вам может быть интересно это объявление, перейдите по ссылке, что бы посмотреть [URL.AD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(190, 'ru_RU', 0, 'Объявление `[AD.NAME]`создано на [SITE.NAME]!', 'ads-user-check', 'Здравстуйте [USER.NAME], Объявление создано под именем [USER.NAME]! Вы можете просмотреть его за ссылкой [URL.AD]. Если Вы не создавали это объявление, перейдите за ссылкой, чтобы связаться с нами [URL.CONTACT].', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(191, 'ru_RU', 0, 'Наши поздравления, объявление `[AD.NAME]` на [SITE.NAME] было успешно создано!', 'ads-confirm', 'Добро Пожаловать [USER.NAME], Большое спасибо за создание объявления на [SITE.NAME]! Пожалуйста, перейдите за ссылкой [URL.QL] чтобы подтвердить. С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(192, 'ru_RU', 0, 'Объявление `[AD.TITLE]` выставлено на [SITE.NAME]!', 'ads-purchased', 'Номер заказа: [ORDER.ID] Номер продукта: [PRODUCT.ID] Если у Вас возникли проблемы, пожалуйста, свяжитесь с администратором сайта [SITE.NAME] Перейдите за ссылкой для просмотра [URL.AD]\r\n\r\n[BUYER.INSTRUCTIONS]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(193, 'ru_RU', 0, 'Заканчивается срок публикации Вашего объявления [AD.NAME]', 'ad-to-expire', 'Здравствуйте [USER.NAME], Скоро истечёт срок вашего объявления [AD.NAME], пожалуйста, перейдите за ссылкой чтобы просмотреть [URL.EDITAD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(194, 'ru_RU', 0, 'Пароль Изменён [SITE.NAME]', 'password-changed', 'Здравствуйте[USER.NAME], Ваш пароль был изменён. Это Вашы новые детали :\r\nEmail: [USER.EMAIL] Пароль: [USER.PWD] У нас больше нет Вашего первоначального пароля. С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(195, 'ru_RU', 0, 'Вышел срок публикации Вашего объявления [AD.NAME] ', 'ad-expired', 'Здавствуйте [USER.NAME], Вышел срок публикации Вашего объявления [AD.NAME], Пожалуйста, перейдите за ссылкой для просмотра [URL.EDITAD]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1);
+(137, 'es_ES', 0, 'Cambiar Contraseña [SITE.NAME]', 'auth-remember', 'Hola [USER.NAME],\r\n\r\nSigue este enlace  [URL.QL]\r\n\r\n¡Gracias!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(138, 'es_ES', 0, '¡Bienvenido a [SITE.NAME]!', 'auth-register', 'Bienvenido [USER.NAME],\r\n\r\n¡Estamos muy contentos de que te no hayas unido! [URL.QL]\r\n\r\nRecuerda tus detalles de usuario:\r\nEmail: [USER.EMAIL]\r\nContraseña: [USER.PWD]\r\n\r\nYa no tenemos más tu contraseña original.\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(139, 'es_ES', 0, '¡Hola [USER.NAME]!', 'user-contact', 'Has sido contactado en relación con tu anuncio: \r\n\r\n`[AD.NAME]`. \r\n\r\n Usuario [EMAIL.SENDER] [EMAIL.FROM], tiene un mensaje para ti: \r\n\r\n[EMAIL.BODY]. \r\n\r\n ¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(140, 'es_ES', 0, '¡Hola [USER.NAME]!', 'user-profile-contact', 'Usuario [EMAIL.SENDER] [EMAIL.FROM], tiene un mensaje para ti: \r\n\r\n[EMAIL.SUBJECT] \r\n\r\n[EMAIL.BODY]. \r\n\r\n ¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(141, 'es_ES', 0, '¡[EMAIL.SENDER] quiere contactarte!', 'contact-admin', 'Hello Admin,\r\n\r\n [EMAIL.SENDER]: [EMAIL.FROM], tiene un mensaje para ti:\r\n\r\n [EMAIL.BODY] \r\n\r\n ¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(142, 'es_ES', 0, '¡Tu anuncio `[AD.NAME]` en [SITE.NAME] ha sido activado!', 'ads-activated', 'Hola [USER.OWNER],\r\n\r\n ¡Queremos informate que tu anuncio [URL.QL] ha sido activado!\r\n\r\n Ahora puede ser visto por otros usuarios. \r\n\r\n Esperamos no habarte hecho esperar demasiado. \r\n\r\n¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(143, 'es_ES', 0, '¡Enhorabuena! Tu anuncio `[AD.NAME]` ha sido creado en [SITE.NAME]!', 'ads-notify', 'Hola [USER.NAME],\r\n\r\n¡Gracias por crear un anuncio en [SITE.NAME]! \r\n\r\nPuedes editar tu anuncio aquí [URL.QL].\r\n\r\n Tu anuncio aún no está publicado, necesita que sea validado por un administrador. \r\n\r\n Lamentamos el inconveniente. Lo revisaremos lo más pronto posible.\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(144, 'es_ES', 0, '¡Anuncio `[AD.NAME]` ha sido creado en [SITE.NAME]!', 'ads-user-check', 'Hola [USER.NAME],\r\n\r\n ¡[USER.NAME], un anuncio ha sido creado en tu cuenta! Puedes visitar este enlace para verlo [URL.AD]\r\n\r\n Si no eres el responsable de la creación de este anuncio, has clic en este enlace para contactarnos [URL.CONTACT].\r\n\r\n', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(145, 'es_ES', 0, '¡Anuncio `[AD.TITLE]` ha sido creado en [SITE.NAME]!', 'ads-subscribers', '¡Hola,\r\n\r\n ¡Quizás te interese esto!\r\n\r\nPuede visitar este enlace para ver el anuncio [URL.AD]\r\n\r\n', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(146, 'es_ES', 0, '¡Anuncio `[AD.TITLE]` ha sido creado en [SITE.NAME]!', 'ads-to-admin', 'Clic aquí para visitarlo [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(147, 'es_ES', 0, '¡Anuncio `[AD.TITLE]` ha sido vendido en [SITE.NAME]!', 'ads-sold', 'ID de la orden: [ORDER.ID]\r\n\r\nID del producto: [PRODUCT.ID]\r\n\r\nPor favor, verifica tu cuenta para el pago recibido.\r\n\r\nClic aquí para visitar [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(148, 'es_ES', 0, '¡El anuncio `[AD.TITLE]` ya no cuenta con stock en [SITE.NAME]!', 'out-of-stock', 'Hola [USER.NAME],\r\n\r\nMientras tu anuncio está fuera de stock, no estará disponible para que otros usuarios lo vean. Si deseas incrementar tu stock y activar tu anuncio, por favor sigue este enlace [URL.EDIT].\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(149, 'es_ES', 0, 'Ha comprado `[AD.TITLE]`', 'ads-purchased', 'ID de la orden: [ORDER.ID]\r\n\r\nID del producto: [PRODUCT.ID]\r\n\r\nClic aquí para visitar [URL.AD\n\n[BUYER.INSTRUCTIONS]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(150, 'es_ES', 0, 'Recibo de [ORDER.DESC] #[ORDER.ID]', 'new-order', 'Hola [USER.NAME], gracias por comprar [ORDER.DESC].\r\n\r\nPor favor, completa tu pago aquí [URL.CHECKOUT]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(151, 'es_ES', 0, '¡Enhorabuena! Tu anuncio `[AD.NAME]` fue creado en [SITE.NAME]!', 'ads-confirm', 'Bienvenido [USER.NAME],\r\n\r\nGracias por crear un anuncio en [SITE.NAME]! \r\n\r\nPor favor, has clic en este enlace [URL.QL] para confirmarlo.\r\n\r\n¡Saludos!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(152, 'es_ES', 0, 'Tu anuncio [AD.NAME] ha expirado', 'ad-expired', 'Hola [USER.NAME], Tu anuncio [AD.NAME] ha expirado \r\n\r\nPor favor, revisa tu anuncio aquí [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(153, 'es_ES', 0, 'Opinión nueva para [AD.TITLE] [RATE]', 'ad-review', '[URL.QL]\r\n\r\n[RATE]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(154, 'es_ES', 0, 'Tu anuncio [AD.NAME] está por expirar', 'ad-to-expire', 'Hola [USER.NAME], Tu anuncio [AD.NAME] pronto expirará \n\nPor favor, revisa tu anuncio aquí [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(155, 'es_ES', 0, 'Contraseña modificada [SITE.NAME]', 'password-changed', 'Hola [USER.NAME],\n\nTu contraseña ha sido modificada.\n\nEstos son ahora tus detalles:\nEmail: [USER.EMAIL]\nContraseña: [USER.PWD]\n\n\n\nSaludos', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(156, 'es_ES', 0, 'Respuesta nueva: [TITLE]', 'messaging-reply', '[URL.QL]\n\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(157, 'es_ES', 0, '[FROM.NAME] Te ha enviado un mensaje directo', 'messaging-user-contact', 'Hola [TO.NAME],\n\n[FROM.NAME] tiene un mensaje para ti:\n\n[DESCRIPTION]\n\n[URL.QL]\n\nSaludos', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(158, 'es_ES', 0, 'Hola [TO.NAME]!', 'messaging-ad-contact', 'Has sido contactado respecto al anuncio:\n\n`[AD.NAME]`.\n\nEl usuario [FROM.NAME], tiene un mensaje para ti:\n\n[DESCRIPTION]\n\n[URL.QL]\n\nSaludos', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(159, 'es_ES', 0, 'Hay una nueva respuesta en el foro', 'new-forum-answer', 'Hay una nueva respuesta en el foro donde has participado.\r\n<br><br>\r\n<a target="_blank" href="[FORUM.LINK]">Puedes revisarla aquí</a>\r\n<br><br>\r\n[FORUM.LINK]\r\n<br>', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(160, 'es_ES', 0, 'Su plan [PLAN.NAME] ha expirado', 'plan-expired', 'Hola [USER.NAME],Su plan [PLAN.NAME] ha expirado \n\nPor favor renueve su plan aquí [URL.CHECKOUT]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(161, 'fr_FR', 0, 'Félicitations! Votre annonce a bien été créée sur [SITE.NAME]!', 'ads-confirm', 'Bienvenue [USER.NAME],<br /><br />\n<br /><br />\nMerci d\'avoir créé une anonnce sur [SITE.NAME]! <br /><br />\n<br /><br />\nVeuillez cliquer sur ce lien [URL.QL] pour la confirmer.<br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(162, 'fr_FR', 0, 'Félicitations! Votre annonce a été créée sur [SITE.NAME]!', 'ads-notify', 'Bonjour [USER.NAME],<br /><br />\n<br /><br />\nMerci d\'avoir créé une anonnce sur [SITE.NAME]! <br /><br />\n<br /><br />\nVous pouvez modifier votre annonce ici [URL.QL].<br /><br />\n<br /><br />\nVotre annonce est en attente de publication, elle doit encore être validée par l\'administrateur. Nous allons l\'examiner dès que possible. <br /><br />\n<br /><br />\nNous sommes désolés pour le délai et la gène occasionnée. Merci de votre compréhension.<br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(163, 'fr_FR', 0, '[EMAIL.SENDER] souhaite vous contacter!', 'contact-admin', 'Bonjour Administrateur,<br /><br />\n<br /><br />\n[EMAIL.SENDER]: [EMAIL.FROM], a un message pour vous:<br /><br />\n<br /><br />\n[EMAIL.BODY] <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(164, 'fr_FR', 0, 'Votre annonce sur [SITE.NAME] a été activée!', 'ads-activated', 'Bonjour [USER.OWNER],<br /><br />\n<br /><br />\nNous vous informons que votre annonce [URL.QL] a été activée!<br /><br />\nElle est désormais visible de tous sur le site. <br /><br />\n<br /><br />\nEn espérant ne pas vous avoir fait trop attendre. <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(165, 'fr_FR', 0, 'Bonjour [USER.NAME]!', 'user-new', 'Bienvenue sur [SITE.NAME]. <br /><br />\n<br /><br />\nNous sommes ravis de votre participation,<br /><br />\nVous pouvez vous connecter avec votre email: [USER.EMAIL], <br /><br />\net votre mot de passe: [USER.PWD]. <br /><br />\n<br /><br />\nLe mot de passe a été généré automatiquement; pour le remplacer par votre mot de passe préféré, cliquez sur ce lien: [URL.PWCH]. <br /><br />\n<br /><br />\nMerci de votre confiance! <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(166, 'fr_FR', 0, 'Bonjour [USER.NAME]!', 'user-contact', 'Vous avez été contacté au sujet de votre annonce. <br /><br />\nL\'utilisateur [EMAIL.SENDER] [EMAIL.FROM] vous a envoyé le message suivant:<br /><br />\n[EMAIL.BODY]. <br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(167, 'fr_FR', 0, 'Changement de mot de passe [SITE.NAME]', 'auth-remember', 'Bonjour [USER.NAME],<br /><br />\n<br /><br />\nVeuillez suivre ce lien [URL.QL]<br /><br />\n<br /><br />\nMerci!!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(168, 'fr_FR', 0, 'Bienvenue sur [SITE.NAME]!', 'auth-register', 'Bienvenue [USER.NAME],<br /><br />\n<br /><br />\nNous sommes ravis de votre participation! [URL.QL]<br /><br />\nVoici pour rappel vos informations de connexion:<br /><br />\nEmail: [USER.EMAIL]<br /><br />\nMot de passe: [USER.PWD]<br /><br />\n<br /><br />\nPour des raisons de sécurité, nous ne gardons pas votre mot de passe original.<br /><br />\n<br /><br />\nCordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(169, 'fr_FR', 0, 'Bonjour [USER.NAME]!', 'user-profile-contact', 'L\'utilisateur [Email.SENDER] [EMAIL.From] a un message pour vous: [EMAIL.SUBJECT] [EMAIL.BODY]. Cordialement,', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(170, 'fr_FR', 0, 'L\'annonce `[AD.NAME]` a été créée sur [SITE.NAME]!', 'ads-user-check', 'Bonjour [USER.NAME], l\'annonce a été créée avec votre compte [USER.NAME]! Vous pouvez visiter ce lien pour Cliquez ici pour accéder à votre annonce: [URL.AD] Si vous n\'êtes pas l\'auteur de cette annonce, cliquez sur le lien pour nous contacter: [URL.CONTACT].', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(171, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` vient d\'être publiée sur [SITE.NAME]!', 'ads-subscribers', 'Bonjour, Vous êtes peut être intéressé(e) par cette nouvelle annonce! Cliquez sur ce lien pour Cliquez ici pour accéder à votre annonce: [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(172, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` vient d\'être créée sur [SITE.NAME]!', 'ads-to-admin', 'Cliquez ici pour voir l\'annnonce [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(173, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` a été vendue sur [SITE.NAME]!', 'ads-sold', 'Numéro de commande: [ORDER.ID] ID de produit: [PRODUCT.ID] Veuillez svp vérifier votre compte pour le paiement entrant. Cliquez ici pour accéder à votre annonce: [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(174, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` est en rupture de stock sur [SITE.NAME]!', 'out-of-stock', 'Bonjour [USER.NAME]. Comme votre annonce est en rupture de stock, il n\'est pas posible pour les visiteurs du site de la voir. Si vous souhaitez augmenter sa disponibilité et ainsi activer votre annonce, veuillez svp cliquer sur le lien suivant: [URL.EDIT]. Cordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(175, 'fr_FR', 0, 'Reçu pour votre commande [ORDER.DESC] # [ORDER.ID]', 'new-order', 'Bonjour [USER.NAME], Merci pour votre commande [ORDER.DESC]. Veuillez svp régler votre commande et procéder à son paiement ici: [URL.CHECKOUT]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(176, 'fr_FR', 0, 'Votre annonce [AD.NAME] a expiré', 'ad-expired', 'Bonjour [USER.NAME], Votre annonce [AD.NAME] a expiré. Veuillez svp vérifier votre annonce ici: [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(177, 'fr_FR', 0, 'L\'annonce `[AD.TITLE]` a été achetée sur [SITE.NAME]!', 'ads-purchased', 'Numéro de commande: [ORDER.ID] ID du produit: [PRODUCT.ID] Pour toute question ou demande veuillez svp contacter l\'administrateur du site [SITE.NAME] Cliquez ici pour accéder à votre annonce: [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(178, 'fr_FR', 0, 'Mot de passe modifié [SITE.NAME]', 'password-changed', 'Bonjour [USER.NAME], Votre mot de passe a été changé. Voici vos nouvelles informations de connexion: Email: [USER.EMAIL] Mot de passe: [USER.PWD] . Pour des raisons de sécurité, nous ne gardons pas votre mot de passe original. Cordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(179, 'fr_FR', 0, 'Votre annonce [AD.NAME] va expirer', 'ad-to-expire', 'Bonjour [USER.NAME], Votre annonce [AD.NAME] va bientôt expirer. Veuillez svp vérifier votre annonce en cliquant sur ce lien: [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(180, 'fr_FR', 0, 'Nouvelle réponse: [TITRE]', 'messaging-reply', '[URL.QL]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(181, 'fr_FR', 0, '[FROM.NAME] vous a envoyé un message direct', 'messaging-user-contact', 'Bonjour [TO.NAME], [FROM.NAME] a un message pour vous: [description] [URL.QL] Cordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(182, 'fr_FR', 0, 'Nouveau commentaire sur votre annonce [AD.TITLE] [RATE]', 'ad-review', 'Bonjour, une nouveau commentaire et une appréciation ont été publiés pour votre annonce. [URL.QL]\r\n\r\n[RATE]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(183, 'fr_FR', 0, 'Bonjour [TO.NAME]!', 'messaging-ad-contact', 'Vous avez été contacté au sujet de votre annonce: `[AD.NAME]`. L\'utilisateur [FROM.NAME] a un message pour vous: [DESCRIPTION] [URL.QL] Cordialement!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(184, 'ru_RU', 0, 'Добро Пожаловать на [SITE.NAME]!', 'auth-register', '<p>Добро Пожаловать [USER.NAME], мы очень рады, что Вы присоединились к нам! &nbsp;[URL.QL] Запомните детали своего профайла:\r\nEmail: [USER.EMAIL] Пароль: [USER.PWD] У нас больше нет вашего первоначального пароля. С уважением!&nbsp;</p>', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(185, 'ru_RU', 0, 'Изменить пароль на [SITE.NAME]', 'auth-remember', 'Здравствуйте [USER.NAME], перейдите за ссылкой [URL.QL] Спасибо!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(186, 'ru_RU', 0, 'Здравствуйте [USER.NAME]!', 'user-profile-contact', 'Пользователь [EMAIL.SENDER] [EMAIL.FROM], прислал вам сообщение: \r\n\r\n[EMAIL.SUBJECT] \r\n\r\n[EMAIL.BODY]. С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(187, 'ru_RU', 0, 'Здравствуйте [USER.NAME]!', 'user-contact', 'С Вами хотят связаться насчёт Вашего объявления: `[AD.NAME]`. Пользователь [EMAIL.SENDER] [EMAIL.FROM], прислал Вам сообщение: [EMAIL.BODY]. С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(188, 'ru_RU', 0, '[EMAIL.SENDER] хочет с Вами связаться!', 'contact-admin', 'Здравствуйте Адміністратор, [EMAIL.SENDER]: [EMAIL.FROM], прислал Вам сообщение: [EMAIL.BODY] С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(189, 'ru_RU', 0, 'Наши поздравления, объявление `[AD.NAME]` на [SITE.NAME] было успешно создано!', 'ads-notify', 'Здравствуйте [USER.NAME], Большое спасибо за объявление на [SITE.NAME]! Вы можете редактировать его здесь [URL.QL]. Ваше объявление еще не опубликовано, сначало оно должно быть подтверждено администратором. Приносим извинения за возможные неудобства. Мы рассмотрим его как можно скорее. С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(190, 'ru_RU', 0, 'Квитанция за [ORDER.DESC] #[ORDER.ID]', 'new-order', 'Здавствуйте [USER.NAME], Большое спасибо за покупку [ORDER.DESC]. Пожалуйста, продолжите оплату здесь  [URL.CHECKOUT].', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(191, 'ru_RU', 0, 'Объявление `[AD.TITLE]` is out of stock on [SITE.NAME]!', 'out-of-stock', 'Здавствуйте [USER.NAME],\r\n\r\nWhile your ad is out of stock, it is unavailable for others to see. If you wish to increase stock and activate, please follow this link [URL.EDIT].\r\n\r\nRegards!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(192, 'ru_RU', 0, 'Объявление`[AD.TITLE]` продано на [SITE.NAME]!', 'ads-sold', 'Номер заказа: [ORDER.ID] Номер продукта: [PRODUCT.ID] Пожалуйста, проверте свой акаунт на оплату. Для просмотра нажмите здесь [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(193, 'ru_RU', 0, 'Объявление `[AD.TITLE]` создано на [SITE.NAME]!', 'ads-to-admin', 'Для просмотра нажмите здесь [URL.AD]&nbsp;', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(194, 'ru_RU', 0, 'Объявление`[AD.TITLE]` создано на [SITE.NAME]!', 'ads-subscribers', 'Здравствуйте, Вам может быть интересно это объявление, перейдите по ссылке, что бы посмотреть [URL.AD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(195, 'ru_RU', 0, 'Объявление `[AD.NAME]`создано на [SITE.NAME]!', 'ads-user-check', 'Здравстуйте [USER.NAME], Объявление создано под именем [USER.NAME]! Вы можете просмотреть его за ссылкой [URL.AD]. Если Вы не создавали это объявление, перейдите за ссылкой, чтобы связаться с нами [URL.CONTACT].', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(196, 'ru_RU', 0, 'Наши поздравления, объявление `[AD.NAME]` на [SITE.NAME] было успешно создано!', 'ads-confirm', 'Добро Пожаловать [USER.NAME], Большое спасибо за создание объявления на [SITE.NAME]! Пожалуйста, перейдите за ссылкой [URL.QL] чтобы подтвердить. С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1);
 INSERT INTO `yc3_content` (`id_content`, `locale`, `order`, `title`, `seotitle`, `description`, `from_email`, `created`, `type`, `status`) VALUES
-(196, 'ru_RU', 0, '[FROM.NAME] прислал Вам сообщение', 'messaging-user-contact', 'Здравствуйте [TO.NAME], [FROM.NAME] прислал Вам сообщение: [DESCRIPTION] [URL.QL] С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(197, 'ru_RU', 0, 'Новый ответ: [TITLE]', 'messaging-reply', '[URL.QL]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(198, 'ru_RU', 0, 'Здравствуйте [TO.NAME]!', 'messaging-ad-contact', 'С Вами хотят связаться насчёт&nbsp;объявления: `[AD.NAME]`. Пользователь [FROM.NAME], прислал Вам сообщение: [DESCRIPTION] [URL.QL] С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(199, 'ru_RU', 0, 'Срок Вашего тарифного плана [PLAN.NAME] истёк', 'plan-expired', 'Здравствуйте [USER.NAME], Истёк срок Вашего тарифного плана [PLAN.NAME], Пожалуйста, перейдите за &nbsp;ссылкой чтобы просмотрет [URL.CHECKOUT]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(200, 'ru_RU', 0, 'Новый ответ на форуме', 'new-forum-answer', '<p>Новый ответ на форуме<br></p><p><br>&nbsp;&nbsp;<a href="[FORUM.LINK]" >Просмотреть здесь</a><br><br>[FORUM.LINK]<br></p>', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(201, 'ru_RU', 0, 'Новый отзыв на  [AD.TITLE] [RATE]', 'ad-review', '[URL.QL]\r\n\r\n[RATE]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1),
-(202, 'ru_RU', 0, 'Ваше объявление `[AD.NAME]` на [SITE.NAME], активировано', 'ads-activated', 'Здравствуйте [USER.OWNER], Ваше объявление [URL.QL] активировано! Теперь его может увидеть каждый посетитель. Надеемся, что мы не заставили Вас долго ждать. С уважением!', 'admin@reoc.lo', '2017-01-05 15:55:33', 'email', 1);
+(197, 'ru_RU', 0, 'Объявление `[AD.TITLE]` выставлено на [SITE.NAME]!', 'ads-purchased', 'Номер заказа: [ORDER.ID] Номер продукта: [PRODUCT.ID] Если у Вас возникли проблемы, пожалуйста, свяжитесь с администратором сайта [SITE.NAME] Перейдите за ссылкой для просмотра [URL.AD]\r\n\r\n[BUYER.INSTRUCTIONS]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(198, 'ru_RU', 0, 'Заканчивается срок публикации Вашего объявления [AD.NAME]', 'ad-to-expire', 'Здравствуйте [USER.NAME], Скоро истечёт срок вашего объявления [AD.NAME], пожалуйста, перейдите за ссылкой чтобы просмотреть [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(199, 'ru_RU', 0, 'Пароль Изменён [SITE.NAME]', 'password-changed', 'Здравствуйте[USER.NAME], Ваш пароль был изменён. Это Вашы новые детали :\r\nEmail: [USER.EMAIL] Пароль: [USER.PWD] У нас больше нет Вашего первоначального пароля. С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(200, 'ru_RU', 0, 'Вышел срок публикации Вашего объявления [AD.NAME] ', 'ad-expired', 'Здавствуйте [USER.NAME], Вышел срок публикации Вашего объявления [AD.NAME], Пожалуйста, перейдите за ссылкой для просмотра [URL.EDITAD]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(201, 'ru_RU', 0, '[FROM.NAME] прислал Вам сообщение', 'messaging-user-contact', 'Здравствуйте [TO.NAME], [FROM.NAME] прислал Вам сообщение: [DESCRIPTION] [URL.QL] С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(202, 'ru_RU', 0, 'Новый ответ: [TITLE]', 'messaging-reply', '[URL.QL]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(203, 'ru_RU', 0, 'Здравствуйте [TO.NAME]!', 'messaging-ad-contact', 'С Вами хотят связаться насчёт&nbsp;объявления: `[AD.NAME]`. Пользователь [FROM.NAME], прислал Вам сообщение: [DESCRIPTION] [URL.QL] С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(204, 'ru_RU', 0, 'Срок Вашего тарифного плана [PLAN.NAME] истёк', 'plan-expired', 'Здравствуйте [USER.NAME], Истёк срок Вашего тарифного плана [PLAN.NAME], Пожалуйста, перейдите за &nbsp;ссылкой чтобы просмотрет [URL.CHECKOUT]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(205, 'ru_RU', 0, 'Новый ответ на форуме', 'new-forum-answer', '<p>Новый ответ на форуме<br></p><p><br>&nbsp;&nbsp;<a href="[FORUM.LINK]" >Просмотреть здесь</a><br><br>[FORUM.LINK]<br></p>', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(206, 'ru_RU', 0, 'Новый отзыв на  [AD.TITLE] [RATE]', 'ad-review', '[URL.QL]\r\n\r\n[RATE]\r\n\r\n[DESCRIPTION]', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1),
+(207, 'ru_RU', 0, 'Ваше объявление `[AD.NAME]` на [SITE.NAME], активировано', 'ads-activated', 'Здравствуйте [USER.OWNER], Ваше объявление [URL.QL] активировано! Теперь его может увидеть каждый посетитель. Надеемся, что мы не заставили Вас долго ждать. С уважением!', 'admin@reoc.lo', '2017-09-07 12:54:07', 'email', 1);
 
 -- --------------------------------------------------------
 
@@ -652,16 +686,17 @@ CREATE TABLE `yc3_crontab` (
 --
 
 INSERT INTO `yc3_crontab` (`id_crontab`, `name`, `period`, `callback`, `params`, `description`, `date_created`, `date_started`, `date_finished`, `date_next`, `times_executed`, `output`, `running`, `active`) VALUES
-(1, 'Sitemap', '0 3 * * *', 'Sitemap::generate', NULL, 'Regenerates the sitemap everyday at 3am', '2017-01-05 15:55:34', '2017-01-05 15:57:05', '2017-01-05 15:57:06', '2017-01-06 03:00:00', 1, 'Memory peak 1.99 MB - Time: 0.87s', 0, 1),
-(2, 'Clean Cache', '0 5 * * *', 'Core::delete_cache', NULL, 'Once day force to flush all the cache.', '2017-01-05 15:55:34', '2017-01-05 15:57:06', '2017-01-05 15:57:06', '2017-01-06 05:00:00', 1, NULL, 0, 1),
-(3, 'Optimize DB', '0 4 1 * *', 'Core::optimize_db', NULL, 'once a month we optimize the DB', '2017-01-05 15:55:34', '2017-01-05 15:57:06', '2017-01-05 15:57:26', '2017-02-01 04:00:00', 1, NULL, 0, 1),
-(4, 'Unpaid Orders', '0 7 * * *', 'Cron_Ad::unpaid', NULL, 'Notify unpaid orders 2 days after was created', '2017-01-05 15:55:34', '2017-01-05 15:57:26', '2017-01-05 15:57:26', '2017-01-06 07:00:00', 1, NULL, 0, 1),
-(5, 'Expired Featured Ad', '0 8 * * *', 'Cron_Ad::expired_featured', NULL, 'Notify by email of expired featured ad', '2017-01-05 15:55:34', '2017-01-05 15:57:26', '2017-01-05 15:57:26', '2017-01-06 08:00:00', 1, NULL, 0, 1),
-(6, 'Expired Ad', '0 9 * * *', 'Cron_Ad::expired', NULL, 'Notify by email of expired ad', '2017-01-05 15:55:34', '2017-01-05 15:57:26', '2017-01-05 15:57:27', '2017-01-06 09:00:00', 1, NULL, 0, 1),
-(7, 'About to Expire Ad', '05 9 * * *', 'Cron_Ad::to_expire', NULL, 'Notify by email your ad is about to expire', '2017-01-05 15:55:34', '2017-01-05 15:57:27', '2017-01-05 15:57:27', '2017-01-06 09:05:00', 1, NULL, 0, 1),
-(8, 'Renew subscription', '*/5 * * * *', 'Cron_Subscription::renew', NULL, 'Notify by email user subscription will expire.', '2017-01-05 15:55:34', '2017-01-05 16:21:57', '2017-01-05 16:21:57', '2017-01-05 16:25:00', 2, NULL, 0, 1),
-(9, 'Notify new updates', '0 9 * * 1', 'Cron_Update::notify', NULL, 'Notify by email of new site updates.', '2017-01-05 15:55:34', '2017-01-05 15:57:27', '2017-01-05 15:57:28', '2017-01-09 09:00:00', 1, NULL, 0, 1),
-(10, 'Generate Access Token', '10 9 1 * *', 'Social::GetAccessToken', NULL, 'Generate Facebook long-lived Access Token.', '2017-01-05 15:55:34', '2017-01-05 15:57:28', '2017-01-05 15:57:28', '2017-02-01 09:10:00', 1, NULL, 0, 1);
+(1, 'Sitemap', '0 3 * * *', 'Sitemap::generate', NULL, 'Regenerates the sitemap everyday at 3am', '2017-09-07 12:54:08', '2017-09-07 13:54:11', '2017-09-07 13:54:12', '2017-09-08 03:00:00', 1, 'Memory peak 1.37 MB - Time: 0.63s', 0, 1),
+(2, 'Clean Cache', '0 5 * * *', 'Core::delete_cache', NULL, 'Once day force to flush all the cache.', '2017-09-07 12:54:08', '2017-09-07 13:54:12', '2017-09-07 13:54:12', '2017-09-08 05:00:00', 1, NULL, 0, 1),
+(3, 'Optimize DB', '0 4 1 * *', 'Core::optimize_db', NULL, 'once a month we optimize the DB', '2017-09-07 12:54:08', '2017-09-07 13:54:12', '2017-09-07 13:54:29', '2017-10-01 04:00:00', 1, NULL, 0, 1),
+(4, 'Unpaid Orders', '0 7 * * *', 'Cron_Ad::unpaid', NULL, 'Notify unpaid orders 2 days after was created', '2017-09-07 12:54:08', '2017-09-07 13:54:29', '2017-09-07 13:54:29', '2017-09-08 07:00:00', 1, NULL, 0, 1),
+(5, 'Expired Featured Ad', '0 8 * * *', 'Cron_Ad::expired_featured', NULL, 'Notify by email of expired featured ad', '2017-09-07 12:54:08', '2017-09-07 13:54:29', '2017-09-07 13:54:29', '2017-09-08 08:00:00', 1, NULL, 0, 1),
+(6, 'Expired Ad', '0 9 * * *', 'Cron_Ad::expired', NULL, 'Notify by email of expired ad', '2017-09-07 12:54:08', '2017-09-07 13:54:29', '2017-09-07 13:54:30', '2017-09-08 09:00:00', 1, NULL, 0, 1),
+(7, 'About to Expire Ad', '05 9 * * *', 'Cron_Ad::to_expire', NULL, 'Notify by email your ad is about to expire', '2017-09-07 12:54:08', '2017-09-07 13:54:30', '2017-09-07 13:54:30', '2017-09-08 09:05:00', 1, NULL, 0, 1),
+(8, 'Renew subscription', '*/5 * * * *', 'Cron_Subscription::renew', NULL, 'Notify by email user subscription will expire.', '2017-09-07 12:54:08', '2017-09-07 13:56:48', '2017-09-07 13:56:48', '2017-09-07 14:00:00', 2, NULL, 0, 1),
+(9, 'Notify new updates', '0 9 * * 1', 'Cron_Update::notify', NULL, 'Notify by email of new site updates.', '2017-09-07 12:54:08', '2017-09-07 13:54:30', '2017-09-07 13:54:30', '2017-09-11 09:00:00', 1, NULL, 0, 1),
+(10, 'Generate Access Token', '10 9 1 * *', 'Social::GetAccessToken', NULL, 'Generate Facebook long-lived Access Token.', '2017-09-07 12:54:08', '2017-09-07 13:54:31', '2017-09-07 13:54:31', '2017-10-01 09:10:00', 1, NULL, 0, 1),
+(11, 'Algolia Search re-index', '0 * * * *', 'Cron_Algolia::reindex', NULL, 'Re-index everything', '2017-09-07 12:54:08', '2017-09-07 13:54:31', '2017-09-07 13:54:31', '2017-09-07 14:00:00', 1, NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -845,10 +880,10 @@ CREATE TABLE `yc3_roles` (
 --
 
 INSERT INTO `yc3_roles` (`id_role`, `name`, `description`, `date_created`) VALUES
-(1, 'user', 'Normal user', '2017-01-05 15:55:33'),
-(5, 'translator', 'User + Translations', '2017-01-05 15:55:33'),
-(7, 'moderator', 'Moderator', '2017-01-05 15:55:33'),
-(10, 'admin', 'Full access', '2017-01-05 15:55:33');
+(1, 'user', 'Normal user', '2017-09-07 12:54:08'),
+(5, 'translator', 'User + Translations', '2017-09-07 12:54:08'),
+(7, 'moderator', 'Moderator', '2017-09-07 12:54:08'),
+(10, 'admin', 'Full access', '2017-09-07 12:54:08');
 
 -- --------------------------------------------------------
 
@@ -921,18 +956,19 @@ CREATE TABLE `yc3_users` (
   `device_id` varchar(255) DEFAULT NULL,
   `stripe_user_id` varchar(140) DEFAULT NULL,
   `stripe_agreement` varchar(40) DEFAULT NULL,
-  `google_authenticator` varchar(40) DEFAULT NULL
+  `google_authenticator` varchar(40) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `yc3_users`
 --
 
-INSERT INTO `yc3_users` (`id_user`, `name`, `seoname`, `email`, `password`, `description`, `status`, `id_role`, `id_location`, `created`, `last_modified`, `logins`, `last_login`, `last_ip`, `user_agent`, `token`, `token_created`, `token_expires`, `api_token`, `hybridauth_provider_name`, `hybridauth_provider_uid`, `subscriber`, `rate`, `has_image`, `failed_attempts`, `last_failed`, `notification_date`, `device_id`, `stripe_user_id`, `stripe_agreement`, `google_authenticator`) VALUES
-(1, 'admin', 'admin', 'admin@reoc.lo', '79c68b3c2f78bd14f26dda6206c65cb7be9b6beb7d07e0f1feb161c9ebf822af', NULL, 1, 10, NULL, '2017-01-05 15:55:34', NULL, 1, '2017-01-05 16:21:57', 2130706433, 'b9c16670c4b906e4e70185a34c5ccd2ac2f81035', 'e778a98b5348de0f9b61fecad7e37256fb9f2c6a', '2017-01-05 16:21:57', '2017-04-05 17:21:57', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Jermaine Doe', 'jermaine-doe', 'user@reoc.lo', '5595372c573b4296e8d4d3df4ebb930b7eebd412770d6cecf79ec574cb816b28', NULL, 1, 1, NULL, '2017-01-05 16:22:53', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Gary Doe', 'gary-doe', 'gazzasdasd@reoc.lo', '8ba27266103802a9abfdb0f44ae61843568f5bf44af4ccb6479882f57790b63d', NULL, 1, 1, NULL, '2017-01-05 16:23:11', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'John Smith', 'john-smith', 'john@gmail.com', '8728709cf358dbb8af0608b60c5ef3588603af29ecd8219aee1a8f69588b4e23', NULL, 1, 1, NULL, '2017-01-05 16:23:15', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `yc3_users` (`id_user`, `name`, `seoname`, `email`, `password`, `description`, `status`, `id_role`, `id_location`, `created`, `last_modified`, `logins`, `last_login`, `last_ip`, `user_agent`, `token`, `token_created`, `token_expires`, `api_token`, `hybridauth_provider_name`, `hybridauth_provider_uid`, `subscriber`, `rate`, `has_image`, `failed_attempts`, `last_failed`, `notification_date`, `device_id`, `stripe_user_id`, `stripe_agreement`, `google_authenticator`, `phone`) VALUES
+(1, 'admin', 'admin', 'admin@reoc.lo', 'cb9071c4d01027c651041d28a6759e9a0fb03c73d1191bdf7d1132a1f50649b1', NULL, 1, 10, NULL, '2017-09-07 12:54:08', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Jermaine Doe', 'jermaine-doe', 'user@reoc.lo', '7b50de18da4bdf3f426174ad44379379beb3ba9bc0f11bf37c8960ef41e20783', NULL, 1, 1, NULL, '2017-09-07 12:55:42', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Gary Doe', 'gary-doe', 'gazzasdasd@reoc.lo', '08782e12b371210cde52ee94d4e67f790aad1d5a356a40e87553d0e7bc885dc0', NULL, 1, 1, NULL, '2017-09-07 12:55:54', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'John Smith', 'john-smith', 'john@gmail.com', '9236487a97f39190e8c5aac3f0d8012dbbd0c34913a8f79c5214d4f4b26b0645', NULL, 1, 1, NULL, '2017-09-07 12:56:25', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1134,7 +1170,7 @@ ALTER TABLE `yc3_categories`
 -- AUTO_INCREMENT for table `yc3_content`
 --
 ALTER TABLE `yc3_content`
-  MODIFY `id_content` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `id_content` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
 --
 -- AUTO_INCREMENT for table `yc3_coupons`
 --
@@ -1144,7 +1180,7 @@ ALTER TABLE `yc3_coupons`
 -- AUTO_INCREMENT for table `yc3_crontab`
 --
 ALTER TABLE `yc3_crontab`
-  MODIFY `id_crontab` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_crontab` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `yc3_favorites`
 --
