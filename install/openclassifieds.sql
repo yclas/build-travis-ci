@@ -90,7 +90,8 @@ CREATE TABLE `yc3_ads` (
   `has_images` tinyint(1) NOT NULL DEFAULT '0',
   `stock` int(10) UNSIGNED DEFAULT NULL,
   `rate` float(4,2) DEFAULT NULL,
-  `favorited` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `favorited` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `locale` VARCHAR(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -749,7 +750,7 @@ CREATE TABLE `yc3_locations` (
   `longitude` float(10,6) DEFAULT NULL,
   `id_geoname` int(10) UNSIGNED DEFAULT NULL,
   `fcodename_geoname` varchar(145) DEFAULT NULL,
-  `translations` text DEFAULT NULL,
+  `translations` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
