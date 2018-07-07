@@ -159,7 +159,8 @@ CREATE TABLE `yc3_categories` (
   `description` text,
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
   `last_modified` datetime DEFAULT NULL,
-  `has_image` tinyint(1) NOT NULL DEFAULT '0'
+  `has_image` tinyint(1) NOT NULL DEFAULT '0',
+  `translations` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -747,7 +748,8 @@ CREATE TABLE `yc3_locations` (
   `latitude` float(10,6) DEFAULT NULL,
   `longitude` float(10,6) DEFAULT NULL,
   `id_geoname` int(10) UNSIGNED DEFAULT NULL,
-  `fcodename_geoname` varchar(145) DEFAULT NULL
+  `fcodename_geoname` varchar(145) DEFAULT NULL,
+  `translations` text DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
